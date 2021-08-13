@@ -4,6 +4,7 @@
 
   <!-- Propagate last link name information because it is the gripper's parent link -->
   <xacro:property name="last_arm_link" value="end_effector_link"/>
+  <xacro:include filename="$(find kortex_description)/rs_urdf/_d435.urdf.xacro" />
 
   <xacro:macro name="load_arm" params="parent:='' dof vision prefix *origin">
       <link name="${prefix}base_link">
@@ -331,6 +332,9 @@
         <parent link="${prefix}end_effector_link" />
         <child  link="${prefix}camera_color_frame" />
       </joint>
+      <xacro:sensor_d435 name="d435" topics_ns="camera" parent="${prefix}camera_link" publish_pointcloud="true" use_mesh="true">
+        <origin xyz="-0.0 0.009 -0.009" rpy="0.0 -1.57 1.57"/>
+      </xacro:sensor_d435>
     </xacro:if>
   </xacro:macro>
 </robot>
