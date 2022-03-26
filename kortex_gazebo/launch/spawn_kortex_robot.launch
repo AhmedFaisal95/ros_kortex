@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
 
     <!-- Arguments -->
@@ -30,12 +31,15 @@
     <arg name="debug" default="false" />
     <arg name="paused" default="true"/>
 
+    <arg name="world_name" default=""/>
+
     <!-- Start Gazebo -->
     <include file="$(find kortex_gazebo)/launch/start_gazebo.launch" if="$(arg start_gazebo)">
             <arg name="gui" value="$(arg gazebo_gui)"/>
             <arg name="use_sim_time" value="$(arg use_sim_time)"/>
             <arg name="debug" value="$(arg debug)"/>
             <arg name="paused" value="$(arg paused)"/>
+            <arg name="world_name" value="$(arg world_name)"/>
     </include>
 
     <!-- Delay before homing the arm -->
