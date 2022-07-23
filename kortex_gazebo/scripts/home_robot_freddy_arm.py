@@ -82,7 +82,7 @@ class ExampleInitializeGazeboRobot(object):
         return self.wait_for_action_end_or_abort()
 
   def prepare_the_robot(self):
-    initial_named_pose = 'freddy_initial'
+    initial_named_pose = 'freddy_home'
     return self.kinova_controller.go_to_named_pose(initial_named_pose)
 
 def main():
